@@ -14,6 +14,10 @@ public class Position {
 
     private Boolean enabled;
 
+    public Position(String cellValue) {
+
+    }
+
     public Integer getId() {
         return id;
     }

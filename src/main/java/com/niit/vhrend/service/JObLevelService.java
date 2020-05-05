@@ -2,9 +2,9 @@ package com.niit.vhrend.service;
 
 import com.niit.vhrend.mapper.JObLevelMapper;
 import com.niit.vhrend.model.JObLevel;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
@@ -16,28 +16,28 @@ import java.util.List;
  **/
 @Service
 public class JObLevelService {
-    @Resource
-    JObLevelMapper jObLevelMapper;
+    @Autowired
+    JObLevelMapper jobLevelMapper;
 
-    public List<JObLevel> getAllJObLevle() {
-        return jObLevelMapper.selectAllPosition();
+    public List<JObLevel> getAllJobLevels() {
+        return jobLevelMapper.getAllJobLevels();
     }
 
-    public Integer addJObLevel(JObLevel jObLevel) {
-        jObLevel.setEnabled(true);
-        jObLevel.setCreatedate(new Date());
-        return jObLevelMapper.insertSelective(jObLevel);
+    public Integer addJobLevel(JObLevel jobLevel) {
+        jobLevel.setCreatedate(new Date());
+        jobLevel.setEnabled(true);
+        return jobLevelMapper.insertSelective(jobLevel);
     }
 
-    public Integer updateJObLevel(JObLevel jObLevel) {
-        return jObLevelMapper.updateByPrimaryKeySelective(jObLevel);
+    public Integer updateJobLevelById(JObLevel jobLevel) {
+        return jobLevelMapper.updateByPrimaryKeySelective(jobLevel);
     }
 
-    public Integer deleteJObLevel(Integer id) {
-        return jObLevelMapper.deleteByPrimaryKey(id);
+    public Integer deleteJobLevelById(Integer id) {
+        return jobLevelMapper.deleteByPrimaryKey(id);
     }
 
-    public Integer deleteJObLevel(Integer[] ids) {
-        return jObLevelMapper.deleteByIds(ids);
+    public Integer deleteJobLevelsByIds(Integer[] ids) {
+        return jobLevelMapper.deleteJobLevelsByIds(ids);
     }
 }

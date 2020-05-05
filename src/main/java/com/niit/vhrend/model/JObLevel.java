@@ -16,6 +16,10 @@ public class JObLevel {
 
     private Boolean enabled;
 
+    public JObLevel(String cellValue) {
+
+    }
+
     public Integer getId() {
         return id;
     }

@@ -1,7 +1,7 @@
 package com.niit.vhrend.mapper;
 
 import com.niit.vhrend.model.Position;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -18,8 +18,7 @@ public interface PositionMapper {
 
     int updateByPrimaryKey(Position record);
 
-    @Select("select * from position")
-    List<Position> selectAllPosition();
+    List<Position> getAllPositions();
 
-    Integer deleteByIds(Integer[] ids);
+    Integer deletePositionsByIds(@Param("ids") Integer[] ids);
 }

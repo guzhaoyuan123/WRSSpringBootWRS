@@ -1,7 +1,7 @@
 package com.niit.vhrend.mapper;
 
 import com.niit.vhrend.model.JObLevel;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -18,8 +18,7 @@ public interface JObLevelMapper {
 
     int updateByPrimaryKey(JObLevel record);
 
-    @Select("select * from joblevel")
-    List<JObLevel> selectAllPosition();
+    List<JObLevel> getAllJobLevels();
 
-    Integer deleteByIds(Integer[] ids);
+    Integer deleteJobLevelsByIds(@Param("ids") Integer[] ids);
 }

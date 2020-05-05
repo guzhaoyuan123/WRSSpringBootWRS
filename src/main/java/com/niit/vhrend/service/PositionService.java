@@ -2,9 +2,9 @@ package com.niit.vhrend.service;
 
 import com.niit.vhrend.mapper.PositionMapper;
 import com.niit.vhrend.model.Position;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
@@ -16,11 +16,10 @@ import java.util.List;
  **/
 @Service
 public class PositionService {
-    @Resource
+    @Autowired
     PositionMapper positionMapper;
-
-    public List<Position> getAllPosition() {
-        return positionMapper.selectAllPosition();
+    public List<Position> getAllPositions() {
+        return positionMapper.getAllPositions();
     }
 
     public Integer addPosition(Position position) {
@@ -29,15 +28,15 @@ public class PositionService {
         return positionMapper.insertSelective(position);
     }
 
-    public Integer updatePosition(Position position) {
+    public Integer updatePositions(Position position) {
         return positionMapper.updateByPrimaryKeySelective(position);
     }
 
-    public Integer deletePosition(Integer id) {
+    public Integer deletePositionById(Integer id) {
         return positionMapper.deleteByPrimaryKey(id);
     }
 
-    public Integer deletePosition(Integer[] ids) {
-        return positionMapper.deleteByIds(ids);
+    public Integer deletePositionsByIds(Integer[] ids) {
+        return positionMapper.deletePositionsByIds(ids);
     }
 }

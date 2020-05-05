@@ -5,6 +5,10 @@ public class Politicsstatus {
 
     private String name;
 
+    public Politicsstatus(String cellValue) {
+
+    }
+
     public Integer getId() {
         return id;
     }

@@ -2,6 +2,8 @@ package com.niit.vhrend.mapper;
 
 import com.niit.vhrend.model.Role;
 
+import java.util.List;
+
 /**
  * @author Lenovo
  */
@@ -18,4 +20,5 @@ public interface RoleMapper {
 
     int updateByPrimaryKey(Role record);
 
+    List<Role> getAllRoles();
 }

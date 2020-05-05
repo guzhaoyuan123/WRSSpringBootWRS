@@ -26,7 +26,7 @@ public class PositionController {
     @ApiOperation(value = "查询所有职位")
     @GetMapping("/")
     public RespBean getAllPosition() {
-        List<Position> positions = positionService.getAllPosition();
+        List<Position> positions = positionService.getAllPositions();
         return RespBean.ok("获取成功", positions);
     }
 
@@ -43,7 +43,7 @@ public class PositionController {
     @ApiOperation(value = "修改职位")
     @PutMapping("/")
     public RespBean updatePosition(@RequestBody Position position) {
-        if(positionService.updatePosition(position) == 1 ) {
+        if(positionService.updatePositions(position) == 1 ) {
             return RespBean.ok("更新成功");
         }
         return RespBean.error("更新失败");
@@ -52,7 +52,7 @@ public class PositionController {
     @ApiOperation(value = "删除一个职位数据")
     @DeleteMapping("/{id}")
     public RespBean deletePosition(@PathVariable Integer id) {
-        if(positionService.deletePosition(id) == 1 ) {
+        if(positionService.deletePositionById(id) == 1 ) {
             return RespBean.ok("删除成功");
         }
         return RespBean.error("删除失败");
@@ -61,7 +61,7 @@ public class PositionController {
     @ApiOperation(value = "批量删除职位数据")
     @DeleteMapping("/")
     public RespBean deletePosition(Integer[] ids) {
-        if(positionService.deletePosition(ids) == ids.length) {
+        if(positionService.deletePositionsByIds(ids) == ids.length) {
             return RespBean.ok("批量删除成功");
         }
         return RespBean.error("批量删除失败");

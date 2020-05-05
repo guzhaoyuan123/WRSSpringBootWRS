@@ -1,6 +1,7 @@
 package com.niit.vhrend.mapper;
 
 import com.niit.vhrend.model.HrRole;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * @author Lenovo
@@ -18,4 +19,7 @@ public interface HrRoleMapper {
 
     int updateByPrimaryKey(HrRole record);
 
+    void deleteByHrid(Integer hrid);
+
+    Integer addRole(@Param("hrid") Integer hrid, @Param("rids") Integer[] rids);
 }

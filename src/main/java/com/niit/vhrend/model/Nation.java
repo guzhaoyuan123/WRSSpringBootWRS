@@ -5,6 +5,10 @@ public class Nation {
 
     private String name;
 
+    public Nation(String cellValue) {
+
+    }
+
     public Integer getId() {
         return id;
     }

@@ -28,7 +28,7 @@ public class JObLevelController {
     @ApiOperation(value = "查询所有职称")
     @GetMapping("/")
     public RespBean getAllJObLevel() {
-        List<JObLevel> jObLevelControllers = jObLevelService.getAllJObLevle();
+        List<JObLevel> jObLevelControllers = jObLevelService.getAllJobLevels();
         return RespBean.ok("获取成功", jObLevelControllers);
     }
 
@@ -36,7 +36,7 @@ public class JObLevelController {
     @ApiOperation(value = "添加职称")
     @PostMapping("/")
     public RespBean addJObLevel(@RequestBody JObLevel jObLevel) {
-        if(jObLevelService.addJObLevel(jObLevel) == 1 ) {
+        if(jObLevelService.addJobLevel(jObLevel) == 1 ) {
             return RespBean.ok("添加成功");
         }
         return RespBean.error("添加失败");
@@ -45,7 +45,7 @@ public class JObLevelController {
     @ApiOperation(value = "修改职称")
     @PutMapping("/")
     public RespBean updateJObLevel(@RequestBody JObLevel jObLevel) {
-        if(jObLevelService.updateJObLevel(jObLevel) == 1 ) {
+        if(jObLevelService.updateJobLevelById(jObLevel) == 1 ) {
             return RespBean.ok("更新成功");
         }
         return RespBean.error("更新失败");
@@ -54,7 +54,7 @@ public class JObLevelController {
     @ApiOperation(value = "删除一条职称数据")
     @DeleteMapping("/{id}")
     public RespBean deleteJObLevel(@PathVariable Integer id) {
-        if(jObLevelService.deleteJObLevel(id) == 1 ) {
+        if(jObLevelService.deleteJobLevelById(id) == 1 ) {
             return RespBean.ok("删除成功");
         }
         return RespBean.error("删除失败");
@@ -63,7 +63,7 @@ public class JObLevelController {
     @ApiOperation(value = "批量删除职称数据")
     @DeleteMapping("/")
     public RespBean deleteJObLevel(Integer[] ids) {
-        if(jObLevelService.deleteJObLevel(ids) == ids.length) {
+        if(jObLevelService.deleteJobLevelsByIds(ids) == ids.length) {
             return RespBean.ok("批量删除成功");
         }
         return RespBean.error("批量删除失败");
