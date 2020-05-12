@@ -13,6 +13,7 @@ public interface EmployeeMapper {
 
     int insertSelective(Employee record);
 
+
     Employee selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Employee record);

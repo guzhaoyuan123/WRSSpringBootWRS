@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.niit.vhrend.mapper.RenshixinxitongjiMapper">
+  <resultMap id="BaseResultMap" type="com.niit.vhrend.model.Renshixinxitongji">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="gender" jdbcType="CHAR" property="gender" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="idCard" jdbcType="CHAR" property="idcard" />
+    <result column="nation" jdbcType="VARCHAR" property="nation" />
+    <result column="nativePlace" jdbcType="VARCHAR" property="nativeplace" />
+    <result column="politicId" jdbcType="VARCHAR" property="politicid" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="departmentId" jdbcType="VARCHAR" property="departmentid" />
+    <result column="jobLevelId" jdbcType="VARCHAR" property="joblevelid" />
+    <result column="posId" jdbcType="VARCHAR" property="posid" />
+    <result column="workID" jdbcType="VARCHAR" property="workid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, `name`, gender, birthday, idCard, nation, nativePlace, politicId, email, phone, 
+    address, departmentId, jobLevelId, posId, workID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from renshixinxitongji
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from renshixinxitongji
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.niit.vhrend.model.Renshixinxitongji" useGeneratedKeys="true">
+    insert into renshixinxitongji (`name`, gender, birthday, 
+      idCard, nation, nativePlace, 
+      politicId, email, phone, 
+      address, departmentId, jobLevelId, 
+      posId, workID)
+    values (#{name,jdbcType=VARCHAR}, #{gender,jdbcType=CHAR}, #{birthday,jdbcType=DATE}, 
+      #{idcard,jdbcType=CHAR}, #{nation,jdbcType=VARCHAR}, #{nativeplace,jdbcType=VARCHAR}, 
+      #{politicid,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{departmentid,jdbcType=VARCHAR}, #{joblevelid,jdbcType=VARCHAR}, 
+      #{posid,jdbcType=VARCHAR}, #{workid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.niit.vhrend.model.Renshixinxitongji" useGeneratedKeys="true">
+    insert into renshixinxitongji
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="idcard != null">
+        idCard,
+      </if>
+      <if test="nation != null">
+        nation,
+      </if>
+      <if test="nativeplace != null">
+        nativePlace,
+      </if>
+      <if test="politicid != null">
+        politicId,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="departmentid != null">
+        departmentId,
+      </if>
+      <if test="joblevelid != null">
+        jobLevelId,
+      </if>
+      <if test="posid != null">
+        posId,
+      </if>
+      <if test="workid != null">
+        workID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=CHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=DATE},
+      </if>
+      <if test="idcard != null">
+        #{idcard,jdbcType=CHAR},
+      </if>
+      <if test="nation != null">
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="nativeplace != null">
+        #{nativeplace,jdbcType=VARCHAR},
+      </if>
+      <if test="politicid != null">
+        #{politicid,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentid != null">
+        #{departmentid,jdbcType=VARCHAR},
+      </if>
+      <if test="joblevelid != null">
+        #{joblevelid,jdbcType=VARCHAR},
+      </if>
+      <if test="posid != null">
+        #{posid,jdbcType=VARCHAR},
+      </if>
+      <if test="workid != null">
+        #{workid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.niit.vhrend.model.Renshixinxitongji">
+    update renshixinxitongji
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=CHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+      <if test="idcard != null">
+        idCard = #{idcard,jdbcType=CHAR},
+      </if>
+      <if test="nation != null">
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="nativeplace != null">
+        nativePlace = #{nativeplace,jdbcType=VARCHAR},
+      </if>
+      <if test="politicid != null">
+        politicId = #{politicid,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="departmentid != null">
+        departmentId = #{departmentid,jdbcType=VARCHAR},
+      </if>
+      <if test="joblevelid != null">
+        jobLevelId = #{joblevelid,jdbcType=VARCHAR},
+      </if>
+      <if test="posid != null">
+        posId = #{posid,jdbcType=VARCHAR},
+      </if>
+      <if test="workid != null">
+        workID = #{workid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.niit.vhrend.model.Renshixinxitongji">
+    update renshixinxitongji
+    set `name` = #{name,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=CHAR},
+      birthday = #{birthday,jdbcType=DATE},
+      idCard = #{idcard,jdbcType=CHAR},
+      nation = #{nation,jdbcType=VARCHAR},
+      nativePlace = #{nativeplace,jdbcType=VARCHAR},
+      politicId = #{politicid,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      departmentId = #{departmentid,jdbcType=VARCHAR},
+      jobLevelId = #{joblevelid,jdbcType=VARCHAR},
+      posId = #{posid,jdbcType=VARCHAR},
+      workID = #{workid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
